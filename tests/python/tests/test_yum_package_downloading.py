@@ -758,7 +758,7 @@ class TestCaseYumPackagesDownloading(TestCaseWithServer):
                            "user.Librepo.DownloadInProgress".encode("utf-8"),
                            "".encode("utf-8"))
         except IOError as err:
-            if err.errno == 95:
+            if err.errno == errno.EOPNOTSUPP:
                 self.skipTest('extended attributes are not supported')
             raise
 
